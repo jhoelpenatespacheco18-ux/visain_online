@@ -1,0 +1,29 @@
+/* Hub (pantalla de inicio). Estilos compartidos de marca en :root */
+:root{--p1:#07021a;--p2:#170a38;--p3:#2d1066;--gold:#f0b429;--gold2:#ffd76a;--ink:#2a1650;--mut:#cbb8f5;--line:rgba(255,255,255,.16)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:"DM Sans","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#fff;background:radial-gradient(ellipse at 70% 10%,var(--p3) 0%,var(--p2) 48%,var(--p1) 100%) fixed;overflow-x:hidden}
+.glow{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;pointer-events:none;z-index:0}
+.g1{width:420px;height:420px;background:#f0b429;left:-140px;top:-120px;animation:fl 14s ease-in-out infinite}
+.g2{width:480px;height:480px;background:#7a3cff;right:-180px;bottom:-160px;animation:fl 18s ease-in-out infinite reverse}
+@keyframes fl{50%{transform:translate(40px,30px)}}
+.hub{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:max(28px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom))}
+header{text-align:center;margin-bottom:26px}
+.logo{display:inline-block;background:#fff;border-radius:60px;padding:12px 34px;box-shadow:0 10px 40px rgba(240,180,41,.25)}
+.logo img{height:58px;display:block}
+h1{font-family:Rubik,"DM Sans",sans-serif;font-size:clamp(28px,5vw,46px);margin:22px 0 6px;color:var(--gold2);font-weight:800;letter-spacing:.01em}
+header p{margin:0;color:var(--mut);font-size:clamp(15px,2.2vw,18px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:8px;padding:22px 22px 18px;border-radius:24px;text-decoration:none;color:#fff;background:rgba(36,16,79,.72);border:1px solid var(--line);backdrop-filter:blur(8px);box-shadow:0 18px 50px rgba(0,0,0,.35);transition:transform .18s,border-color .18s,background .18s}
+.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:var(--gold);background:rgba(52,24,110,.85);outline:none}
+.card:active{transform:scale(.98)}
+.ico{font-size:42px;line-height:1}
+.card h2{font-family:Rubik,"DM Sans",sans-serif;margin:6px 0 0;font-size:24px;color:#fff}
+.card p{margin:0;color:var(--mut);font-size:15.5px;line-height:1.45;flex:1}
+.go{align-self:flex-start;margin-top:6px;font-weight:700;color:var(--ink);background:linear-gradient(180deg,var(--gold2),var(--gold));border-radius:99px;padding:7px 16px;font-size:14.5px}
+footer{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;text-align:center}
+.chip{font:600 13.5px "DM Sans",sans-serif;color:var(--mut);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:99px;padding:7px 14px}
+.chip.ok{color:#8ff0b4;border-color:rgba(143,240,180,.45)}.chip.off{color:#ffb0b2;border-color:rgba(255,176,178,.45)}
+button.chip{cursor:pointer;color:var(--ink);background:var(--gold);border:none}
+footer small{flex-basis:100%;color:rgba(203,184,245,.7);font-size:12.5px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

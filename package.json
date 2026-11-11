@@ -1,0 +1,12 @@
+{
+  "name": "visain-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VISAIN · Herramientas de seminario (edición en línea, estática, sin build ni dependencias)",
+  "scripts": {
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

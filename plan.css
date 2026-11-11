@@ -1,0 +1,40 @@
+/* Visor de diapositivas. Cada diapositiva se dibuja en un lienzo fijo de 1920×1080 y se escala a la pantalla. */
+:root{--gold:#f0b429;--gold2:#ffd76a;--ink:#2a1650;--line:rgba(255,255,255,.18)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:#07021a;color:#fff;font-family:"DM Sans","Segoe UI",system-ui,sans-serif;overflow:hidden}
+#view{position:fixed;left:0;right:0;top:0;bottom:56px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#stage{position:relative;width:1920px;height:1080px;flex:none;transform-origin:center center;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:none;background:#fff}
+.slide.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0}}
+.slide>section{width:100%;height:100%;overflow:hidden}
+.slide aside{display:none}
+.slide h1,.slide h2,.slide h3,.slide p{margin:0}
+.slide table{border-collapse:collapse;width:100%}
+.slide th{font-weight:700;text-align:left;padding:.35em .6em;border-bottom:3px solid currentColor;opacity:.9}
+.slide td{padding:.35em .6em;border-bottom:1px solid rgba(128,128,128,.35)}
+.slide ul,.slide ol{margin:0;padding-left:1.2em}
+.slide svg{display:block}
+#bar{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;gap:8px;align-items:center;padding:0 12px max(0px,env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(10,3,30,0),rgba(10,3,30,.96) 35%);z-index:5}
+.btn{border:1px solid var(--line);background:rgba(255,255,255,.1);color:#fff;border-radius:12px;padding:8px 14px;cursor:pointer;font:700 15px "DM Sans",sans-serif;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}
+.btn:hover{background:rgba(255,255,255,.22)}.btn:active{transform:scale(.96)}
+.btn.gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink);border:none}
+#count{font-weight:700;color:var(--gold2);min-width:60px;text-align:center}
+#jump{flex:1;min-width:0;max-width:340px;margin-left:auto;background:rgba(255,255,255,.1);color:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 10px;font:14px "DM Sans",sans-serif}
+#jump option{color:#111}
+#notes{position:fixed;left:50%;transform:translateX(-50%);bottom:66px;width:min(820px,94vw);max-height:38vh;overflow:auto;background:rgba(20,8,48,.96);border:1px solid var(--gold);border-radius:16px;padding:14px 18px;z-index:6;font-size:16px;line-height:1.5}
+#notes[hidden]{display:none}
+#notes b{color:var(--gold2)}#notes p{margin:6px 0 0}
+body.idle #bar{opacity:0;transition:opacity .4s}body.idle{cursor:none}
+@media(max-width:700px){#bar .x{display:none}#jump{max-width:none}}
+#rot{display:none;position:fixed;left:10px;right:10px;bottom:64px;z-index:4;text-align:center;font-size:14px;color:#cbb8f5;background:rgba(10,3,30,.85);border-radius:12px;padding:8px}
+@media(max-width:700px) and (orientation:portrait){#rot{display:block}}
+/* Imprimir / PDF: una diapositiva por página */
+@media print{
+ @page{size:1920px 1080px;margin:0}
+ html,body{overflow:visible;height:auto;background:#fff}
+ #bar,#notes,#rot{display:none!important}
+ #view{position:static;display:block}
+ #stage{transform:none!important;width:1920px;height:auto;box-shadow:none}
+ .slide{display:block!important;position:relative;page-break-after:always;break-after:page;animation:none}
+}

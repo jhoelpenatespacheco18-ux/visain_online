@@ -1,0 +1,55 @@
+{
+  "name": "VISAIN · Herramientas de seminario",
+  "short_name": "VISAIN",
+  "description": "Temporizador, ruleta, presentación con avatares, calculadora de bonos, catálogo y plan de compensación (edición en línea).",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#170a38",
+  "theme_color": "#2d1066",
+  "categories": [
+    "business",
+    "education",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Temporizador y ruleta",
+      "url": "modules/timer/index.html"
+    },
+    {
+      "name": "Seminario en vivo",
+      "url": "modules/seminar/index.html"
+    },
+    {
+      "name": "Simulador de ganancias",
+      "url": "modules/simulator/index.html"
+    },
+    {
+      "name": "Plan de compensación",
+      "url": "modules/plan-slides/index.html"
+    }
+  ]
+}
